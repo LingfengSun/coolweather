@@ -40,7 +40,7 @@ public class Utility {
      * @param response  服务器返回的json数据
      * @return
      */
-    public static boolean handleCityResponse(String response) {
+    public static boolean handleCityResponse(String response, int provinceId) {
         if (!TextUtils.isEmpty(response)) {
             try {
                 JSONArray allCities = new JSONArray(response);
@@ -49,6 +49,7 @@ public class Utility {
                     City city = new City();
                     city.setCityCode(cityObject.getInt("id"));
                     city.setCityName(cityObject.getString("name"));
+                    city.setProvinceId(provinceId);
                     city.save();
                 }
                 return true;
@@ -64,16 +65,17 @@ public class Utility {
      * @param response  服务器返回的json数据
      * @return
      */
-    public static boolean handleCountyResponse(String response) {
+    public static boolean handleCountyResponse(String response, int cityId) {
         if (!TextUtils.isEmpty(response)) {
             try {
                 JSONArray allCounties = new JSONArray(response);
                 for (int i = 0; i < allCounties.length(); i++) {
                     JSONObject countyObject = allCounties.getJSONObject(i);
-                    County city = new County();
-                    city.setCountyName(countyObject.getString("name"));
-                    city.setWeatherId(countyObject.getString("weather_id"));
-                    city.save();
+                    County county = new County();
+                    county.setCountyName(countyObject.getString("name"));
+                    county.setWeatherId(countyObject.getString("weather_id"));
+                    county.setCityId(cityId);
+                    county.save();
                 }
                 return true;
             } catch (JSONException e) {
