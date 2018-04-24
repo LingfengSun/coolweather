@@ -2,9 +2,9 @@ package com.landy.coolweather.db;
 
 import org.litepal.crud.DataSupport;
 
-public class Conty extends DataSupport {
+public class County extends DataSupport {
     private int id;
-    private String contyName;
+    private String countyName;
     private String weatherId;
     private int cityId;
 
@@ -16,12 +16,12 @@ public class Conty extends DataSupport {
         this.id = id;
     }
 
-    public String getContyName() {
-        return contyName;
+    public String getCountyName() {
+        return countyName;
     }
 
-    public void setContyName(String contyName) {
-        this.contyName = contyName;
+    public void setCountyName(String countyName) {
+        this.countyName = countyName;
     }
 
     public String getWeatherId() {
