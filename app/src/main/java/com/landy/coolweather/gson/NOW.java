@@ -5,9 +5,9 @@ import com.google.gson.annotations.SerializedName;
 public class NOW {
     @SerializedName("tmp")
     public String temperature;
-    public More more;
-    public class More {
-        @SerializedName("txt")
-        public String info;
-    }
+    //体感温度
+    public String fl;
+    //天气状况
+    public String cond_txt;
+
 }

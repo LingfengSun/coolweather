@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Weather {
     public String status;
+    public Update update;
     public Basic basic;
-    public AQI aqi;
     public NOW now;
-    public Suggestion suggestion;
-    public List<Forecast> forecastList;
+    public List<Lifestyle> lifestyle;
+    public List<DailyForecast> dailyForecastList;
 }
